@@ -20,9 +20,6 @@ export default {
                 bebasNeue: ['Bebas Neue', 'sans-serif'],
                 nunito: ['Nunito', 'sans-serif'],
             },
-            fontSize: {
-                '5xl': '8rem',
-            },
         },
     },
     plugins: [],
