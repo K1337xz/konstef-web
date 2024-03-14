@@ -1,4 +1,5 @@
 import { slider } from '@/images'
+import { Link } from 'react-router-dom'
 type Props = {}
 
 export default function Images({}: Props) {
@@ -24,6 +25,14 @@ export default function Images({}: Props) {
                                 <p className="lg:full w-full whitespace-pre-line text-center font-nunito text-xl font-light italic text-csk-50 md:text-3xl lg:text-left">
                                     {itm.paragraph}
                                 </p>
+                            </div>
+                            <div className="mt-7 flex w-full flex-col items-center gap-8 lg:mx-40 lg:items-start">
+                                <Link
+                                    to=""
+                                    className="w-44 rounded-lg bg-csk-400 p-3 text-center uppercase"
+                                >
+                                    Realizacje
+                                </Link>
                             </div>
                         </div>
                     </div>
