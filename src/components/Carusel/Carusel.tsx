@@ -74,7 +74,7 @@ export default function Carusel({}: Props) {
                     >
                         <div className=" flex h-full w-full flex-col items-center justify-center  p-6 lg:items-start">
                             <div className="flex w-full flex-col gap-8 lg:mx-40">
-                                <h1 className="w-full whitespace-pre-line text-center font-bebasNeue text-6xl text-csk-50  md:text-8xl lg:w-1/2 lg:text-left lg:text-9xl">
+                                <h1 className="w-full whitespace-pre-line text-center font-bebasNeue text-6xl text-csk-50  md:text-8xl lg:w-1/2 lg:text-left lg:text-8xl">
                                     {slider[imageIndex].header}
                                 </h1>
                                 <p className="lg:full w-full whitespace-pre-line text-center font-nunito text-lg font-light italic text-csk-50 md:text-3xl lg:text-left">
