@@ -8,23 +8,23 @@ type TSlider = {
 export const slider: TSlider[] = [
     {
         backgroundImage: '../src/assets/firstHero.jpg',
-        backgroundID: 4,
+        backgroundID: 0,
         header: `OD ZERA \n POD KLUCZ`,
         paragraph:
             'Świadczymy usługi w zakresie kompleksowych \n wykończeń mieszkań od stanu deweloperskiego \n do stanu “pod klucz”, gołe “4 ściany” zamienimy \n w przytulne mieszkanie.',
     },
     {
         backgroundImage: '../src/assets/secondHero.jpg',
-        backgroundID: 20,
-        header: `OD ZERA \n POD KLUCZ`,
+        backgroundID: 1,
+        header: `REMONTUJEMY PRYWATNE MIESZKANIA`,
         paragraph:
-            'Świadczymy usługi w zakresie kompleksowych \n wykończeń mieszkań od stanu deweloperskiego \n do stanu “pod klucz”, gołe “4 ściany” zamienimy \n w przytulne mieszkanie.',
+            'Swoje usługi kierujemy do Klientów prywatnych, \n którzy szukają ekipy do remontu lub wykończenia swojego „M”.',
     },
     {
         backgroundImage: '../src/assets/thirdHero.jpg',
-        backgroundID: 26,
-        header: `OD ZERA \n POD KLUCZ`,
+        backgroundID: 2,
+        header: `PRACUJEMY \n W MAŁYCH DRUŻYNACH`,
         paragraph:
-            'Świadczymy usługi w zakresie kompleksowych \n wykończeń mieszkań od stanu deweloperskiego \n do stanu “pod klucz”, gołe “4 ściany” zamienimy \n w przytulne mieszkanie.',
+            'Pracujemy w ekipach 1-3-osobowych \n w zależności od wielkości mieszkania i przeprowadzanych prac.',
     },
 ]
