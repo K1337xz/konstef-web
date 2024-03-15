@@ -65,7 +65,7 @@ export default function Carusel({}: Props) {
                     <div
                         key={imageIndex}
                         style={{
-                            backgroundImage: `linear-gradient(rgb(32 45 70), rgb(32 45 70 / 61%)), url(${slider[imageIndex].backgroundImage})`,
+                            backgroundImage: `linear-gradient(rgb(32 45 70), rgb(32 45 70 / 61%)), url(${slider[imageIndex].backgroundImage} )`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                             backgroundRepeat: 'no-repeat',
