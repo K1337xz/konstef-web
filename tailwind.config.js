@@ -21,6 +21,10 @@ export default {
                 nunito: ['Nunito', 'sans-serif'],
             },
         },
+        gridTemplateColumns: {
+            'auto-fill-100': 'repeat(auto-fill, minmax(350px, 1fr))',
+            'auto-fit-100': 'repeat(auto-fit, minmax(350px, 1fr))',
+        },
     },
     plugins: [],
 }

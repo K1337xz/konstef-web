@@ -11,3 +11,16 @@ body,
     height: 100%;
     width: 100%;
 }
+
+@layer components {
+    .card {
+        /*        @apply w-2/3 md:w-full lg:w-full; */
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 375px;
+        box-shadow: theme('boxShadow.xl');
+        border-radius: 25px;
+        background-color: #738ebf80;
+    }
+}
