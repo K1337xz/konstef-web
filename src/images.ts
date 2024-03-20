@@ -9,6 +9,8 @@ type TSlider = {
     paragraph: string
 }
 
+type Images = {}
+
 export const slider: TSlider[] = [
     {
         backgroundImage: first,
