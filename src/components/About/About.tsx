@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion'
-
 type Props = {}
 
 export default function About({}: Props) {
