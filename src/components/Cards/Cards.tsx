@@ -5,7 +5,7 @@ type Props = {}
 
 export default function Cards({}: Props) {
     return (
-        <div className="flex w-full flex-row flex-wrap  justify-center gap-7 border pt-28">
+        <div className="flex w-full flex-row flex-wrap  justify-center gap-7  pt-1">
             <div className="grid grid-cols-auto-fit-100  gap-4 p-6 lg:w-full lg:px-40">
                 <div className="card px-8  py-10">
                     <div className="flex h-full w-full flex-col items-center gap-10 lg:items-start">

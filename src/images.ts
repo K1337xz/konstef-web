@@ -32,3 +32,5 @@ export const slider: TSlider[] = [
             'Pracujemy w ekipach 1-3-osobowych \n w zależności od wielkości mieszkania i przeprowadzanych prac.',
     },
 ]
+
+const masonaryGallery = {}
