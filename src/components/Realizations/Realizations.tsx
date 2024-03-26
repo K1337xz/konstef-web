@@ -9,9 +9,7 @@ export default function Realizations({}: Props) {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const data = await axios.get(
-                    `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_API_NAME}/resources`
-                )
+               
                 console.log(data)
             } catch (error) {
                 console.log(error)
