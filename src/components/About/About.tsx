@@ -10,7 +10,7 @@ export default function About({}: Props) {
                 </h1>
             </div>
             <div className="flex w-full ">
-                <div className="flex flex-col items-center gap-7 lg:flex-row  lg:pl-40">
+                <div className="flex flex-col items-center gap-7 lg:flex-row  lg:px-40">
                     <div className="flex w-full flex-col items-start justify-center gap-7 lg:w-1/2">
                         <h2 className="w-full text-center font-bebasNeue text-3xl  tracking-wider lg:text-left lg:text-4xl">
                             Firma Konst-Stef Grzegorza Stefańczyka
