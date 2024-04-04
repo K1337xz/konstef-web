@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/storage'
 import { firebaseConfig } from '@/firebase/config'

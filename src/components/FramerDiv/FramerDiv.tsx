@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useRef, useState } from 'react'
+import { ReactNode, useEffect, useRef } from 'react'
 import { motion, useInView, useAnimation } from 'framer-motion'
 
 type Props = {
