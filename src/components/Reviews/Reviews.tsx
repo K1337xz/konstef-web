@@ -1,6 +1,3 @@
-import React from 'react'
-import leftImg from '@/assets/42.jpg'
-import { motion } from 'framer-motion'
 type Props = {}
 
 export default function Reviews({}: Props) {
