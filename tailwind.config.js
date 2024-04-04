@@ -15,6 +15,7 @@ export default {
                 'csk-800': '#202D46',
                 'csk-900': '#101723',
                 'csk-950': '#080B11',
+                'csk-900-opacity': '#101723',
             },
             fontFamily: {
                 bebasNeue: ['Bebas Neue', 'sans-serif'],
