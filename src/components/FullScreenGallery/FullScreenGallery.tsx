@@ -1,6 +1,3 @@
-import InfiniteScroll from 'react-infinite-scroll-component'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
-
 type Props = {
     mainImg?: string
     /*     thumbNails: string[]

@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import FramerDiv from '../FramerDiv/FramerDiv'
@@ -14,11 +14,9 @@ import 'react-lazy-load-image-component/src/effects/blur.css'
 type Prop = {}
 
 export default function Realizations({}: Prop) {
-    const galleryRef = useRef<HTMLImageElement | null | undefined>()
     const { ref: ref, inView: showMasonry } = useInView()
     const [data, setData] = useState<string[][]>([])
     const [images, setImages] = useState<string[]>([])
-    const [dataIndex, setDataIndex] = useState<number>(0)
     const [clickedImage, setClickedImage] = useState<string>()
 
     const splitArray = (arr: string[], size: number) => {
