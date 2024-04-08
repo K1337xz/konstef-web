@@ -18,6 +18,8 @@ export default function Realizations({}: Prop) {
     const [data, setData] = useState<string[][]>([])
     const [images, setImages] = useState<string[]>([])
     const [clickedImage, setClickedImage] = useState<string>()
+    const [loadId, setLoadId] = useState(0)
+    const [clicked, setClicked] = useState(false)
 
     const splitArray = (arr: string[], size: number) => {
         const result: string[][] = []
@@ -31,15 +33,13 @@ export default function Realizations({}: Prop) {
     }
 
     const fetchMoreImages = () => {
-        let loadImages = [...images, ...data[1]]
-        setImages(loadImages)
+        setLoadId((prev) => prev + 1)
     }
 
     useEffect(() => {
         firebase.initializeApp(firebaseConfig)
         const storageRef = firebase.storage().ref()
         const imagesRef = storageRef.child('images')
-
         const fetchImages = async () => {
             try {
                 const listResult = await imagesRef.listAll()
@@ -62,6 +62,13 @@ export default function Realizations({}: Prop) {
         fetchImages()
     }, [])
 
+    useEffect(() => {
+        if (loadId < data.length) {
+            setImages((prevImages) => [...prevImages, ...data[loadId]])
+        }
+        console.log(images.length)
+    }, [clicked])
+
     return (
         <>
             <div
@@ -80,39 +87,54 @@ export default function Realizations({}: Prop) {
                     <div className="w-full">
                         <div className="flex flex-col items-center justify-center gap-7  lg:flex-row lg:px-40 lg:py-32">
                             {showMasonry && (
-                                <InfiniteScroll
-                                    dataLength={data.length}
-                                    next={fetchMoreImages}
-                                    hasMore={true}
-                                    loader={<li>load</li>}
-                                    style={{ width: '100vh' }}
-                                >
-                                    <ResponsiveMasonry
-                                        columnsCountBreakPoints={{
-                                            350: 1,
-                                            768: 2,
-                                            900: 3,
-                                        }}
-                                        className="w-full"
+                                <div className="w-full">
+                                    <InfiniteScroll
+                                        dataLength={images.length}
+                                        next={fetchMoreImages}
+                                        hasMore={loadId < data.length - 1}
+                                        loader={<h4>load</h4>}
+                                        endMessage={
+                                            <p>No more images to load</p>
+                                        }
+                                        style={{ width: '100%' }}
                                     >
-                                        <Masonry columnsCount={3} gutter="10px">
-                                            {images?.map((itm, i) => (
-                                                <LazyLoadImage
-                                                    src={itm}
-                                                    key={i}
-                                                    onClick={() => {
-                                                        setClickedImage(itm)
-                                                    }}
-                                                    effect="blur"
-                                                />
-                                            ))}
-                                        </Masonry>
-                                    </ResponsiveMasonry>
-                                </InfiniteScroll>
+                                        <ResponsiveMasonry
+                                            columnsCountBreakPoints={{
+                                                350: 1,
+                                                768: 2,
+                                                900: 3,
+                                            }}
+                                            className="w-full"
+                                        >
+                                            <Masonry
+                                                columnsCount={3}
+                                                gutter="10px"
+                                            >
+                                                {images?.map((itm, i) => (
+                                                    <LazyLoadImage
+                                                        src={itm}
+                                                        key={i}
+                                                        onClick={() => {
+                                                            setClickedImage(itm)
+                                                        }}
+                                                        effect="blur"
+                                                    />
+                                                ))}
+                                            </Masonry>
+                                        </ResponsiveMasonry>
+                                    </InfiniteScroll>
+                                </div>
                             )}
                         </div>
                     </div>
                 </FramerDiv>
+                <p
+                    onClick={() => {
+                        setClicked((prev) => !prev)
+                    }}
+                >
+                    CLICKKCKCKCKKCKCKC
+                </p>
             </div>
             {clickedImage && <FullScreenGallery mainImg={clickedImage} />}
         </>
