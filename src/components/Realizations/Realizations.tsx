@@ -51,7 +51,7 @@ export default function Realizations({}: Prop) {
                         imageUrls.push(imageUrl)
                     })
                 )
-                const splittedArray = splitArray(imageUrls, 10)
+                const splittedArray = splitArray(imageUrls, 5)
                 setData(splittedArray)
                 setImages(splittedArray[0])
             } catch (error) {
@@ -66,13 +66,13 @@ export default function Realizations({}: Prop) {
         if (loadId < data.length) {
             setImages((prevImages) => [...prevImages, ...data[loadId]])
         }
-        console.log(images.length)
+        console.log(images.length, data.length)
     }, [clicked])
 
     return (
         <>
             <div
-                className="flex w-full flex-col items-start gap-10 p-6 text-center md:text-left lg:py-32 lg:text-left"
+                className="relative flex w-full flex-col items-start gap-10 p-6 text-center md:text-left lg:py-32 lg:text-left"
                 ref={ref}
             >
                 <FramerDiv
@@ -85,17 +85,15 @@ export default function Realizations({}: Prop) {
                         </h1>
                     </div>
                     <div className="w-full">
-                        <div className="flex flex-col items-center justify-center gap-7  lg:flex-row lg:px-40 lg:py-32">
+                        <div className="relative flex flex-col items-center justify-center  gap-7 lg:flex-row lg:px-40 lg:pt-32">
                             {showMasonry && (
                                 <div className="w-full">
                                     <InfiniteScroll
                                         dataLength={images.length}
                                         next={fetchMoreImages}
                                         hasMore={loadId < data.length - 1}
-                                        loader={<h4>load</h4>}
-                                        endMessage={
-                                            <p>No more images to load</p>
-                                        }
+                                        loader={<h4>xd</h4>}
+                                        endMessage={<p></p>}
                                         style={{ width: '100%' }}
                                     >
                                         <ResponsiveMasonry
@@ -128,13 +126,17 @@ export default function Realizations({}: Prop) {
                         </div>
                     </div>
                 </FramerDiv>
-                <p
-                    onClick={() => {
-                        setClicked((prev) => !prev)
-                    }}
-                >
-                    CLICKKCKCKCKKCKCKC
-                </p>
+                <div className="h-2/6 w-full  lg:px-40">
+                    <div className="flex flex-col items-center justify-center gap-7  lg:flex-row lg:px-40 ">
+                        <p
+                            onClick={() => {
+                                setClicked((prev) => !prev)
+                            }}
+                        >
+                            CLICKKCKCKCKKCKCKC
+                        </p>
+                    </div>
+                </div>
             </div>
             {clickedImage && <FullScreenGallery mainImg={clickedImage} />}
         </>
