@@ -17,6 +17,9 @@ export default function Realizations({}: Prop) {
     const { ref: ref, inView: showMasonry } = useInView()
     const [data, setData] = useState<string[][]>([])
     const [images, setImages] = useState<string[]>([])
+    const [imagesWithoutDuplicates, setImagesWithoutDuplicates] = useState<
+        string[]
+    >([])
     const [clickedImage, setClickedImage] = useState<string>()
     const [loadId, setLoadId] = useState(0)
     const [clicked, setClicked] = useState(false)
@@ -36,6 +39,16 @@ export default function Realizations({}: Prop) {
         setLoadId((prev) => prev + 1)
     }
 
+    const removeDuplicates = (data: string[]): string[] => {
+        const unique: string[] = []
+        data.forEach((element) => {
+            if (!unique.includes(element)) {
+                unique.push(element)
+            }
+        })
+        return unique
+    }
+
     useEffect(() => {
         firebase.initializeApp(firebaseConfig)
         const storageRef = firebase.storage().ref()
@@ -51,7 +64,7 @@ export default function Realizations({}: Prop) {
                         imageUrls.push(imageUrl)
                     })
                 )
-                const splittedArray = splitArray(imageUrls, 5)
+                const splittedArray = splitArray(imageUrls, 10)
                 setData(splittedArray)
                 setImages(splittedArray[0])
             } catch (error) {
@@ -63,10 +76,13 @@ export default function Realizations({}: Prop) {
     }, [])
 
     useEffect(() => {
-        if (loadId < data.length) {
-            setImages((prevImages) => [...prevImages, ...data[loadId]])
+        if (loadId < data.length && images.length <= 40) {
+            setImages((prevImages) => {
+                const combinedImages = [...prevImages, ...data[loadId]]
+                const uniqueImages = removeDuplicates(combinedImages)
+                return uniqueImages
+            })
         }
-        console.log(images.length, data.length)
     }, [clicked])
 
     return (
@@ -128,13 +144,20 @@ export default function Realizations({}: Prop) {
                 </FramerDiv>
                 <div className="h-2/6 w-full  lg:px-40">
                     <div className="flex flex-col items-center justify-center gap-7  lg:flex-row lg:px-40 ">
-                        <p
+                        <div
+                            className="onClick={() => { setClicked((prev) => !prev) }} flex h-11  w-52 cursor-pointer items-center
+                                    justify-center rounded-lg  bg-csk-400
+                                font-nunito text-csk-50 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-csk-700"
                             onClick={() => {
                                 setClicked((prev) => !prev)
                             }}
                         >
-                            CLICKKCKCKCKKCKCKC
-                        </p>
+                            <p>
+                                {images.length === 42
+                                    ? 'Brak więcej zdjęć'
+                                    : 'Pokaż więcej zdjęć'}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
