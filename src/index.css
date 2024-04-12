@@ -33,4 +33,7 @@ body,
         border-radius: 25px;
         background-color: #738ebf80;
     }
+    .lazyImg {
+        width: 100px;
+    }
 }

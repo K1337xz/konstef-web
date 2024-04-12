@@ -23,7 +23,7 @@ export default function FullScreenGallery({
 }: Props) {
     return (
         <div className="fixed top-0 h-full w-full bg-csk-900/95">
-            <div className="relative flex w-full flex-col items-center justify-center gap-4 lg:px-40 lg:py-5">
+            <div className="relative flex w-full flex-col items-center justify-center gap-4 lg:px-40 lg:py-1">
                 <IoMdClose
                     className="absolute right-40 top-10 cursor-pointer text-3xl text-csk-100"
                     onClick={closeFullScreen}
@@ -31,15 +31,19 @@ export default function FullScreenGallery({
                 <div className="flex h-1/2 w-full items-center justify-center">
                     <img src={mainImg} className="w-4/12" />
                 </div>
-                <div
-                    className="no-scrollbar flex w-full items-center justify-center gap-10 overflow-scroll
-                "
-                >
-                    <div className="flex w-9/12">
+                <div className="no-scrollbar relative w-1/2 overflow-scroll">
+                    <div
+                        id="scrollableDiv"
+                        style={{
+                            height: 'auto',
+                            width: '200vh',
+                            display: 'flex',
+                        }}
+                    >
                         <InfiniteScroll
                             dataLength={thumbnailImages.length}
                             next={fetchImages}
-                            hasMore={loadId < thumbnailImages.length - 1}
+                            hasMore={false}
                             loader={<h4></h4>}
                             endMessage={<p></p>}
                             style={{
@@ -48,6 +52,7 @@ export default function FullScreenGallery({
                                 gap: '20px',
                                 overflow: 'hidden',
                             }}
+                            scrollableTarget="scrollableDiv"
                         >
                             {thumbnailImages.map((itm, i) => (
                                 <LazyLoadImage
@@ -56,9 +61,12 @@ export default function FullScreenGallery({
                                     effect="blur"
                                     style={
                                         mainImg === itm
-                                            ? { border: '1px solid red' }
+                                            ? {
+                                                  border: '1px solid red',
+                                              }
                                             : { border: 'none' }
                                     }
+                                    className="lazyImg"
                                     onClick={clickImage}
                                 />
                             ))}
