@@ -46,6 +46,11 @@ export default function Realizations({}: Prop) {
         return unique
     }
 
+    function changeImg(e: React.MouseEvent<HTMLImageElement, MouseEvent>) {
+        const target = e.target as HTMLImageElement
+        setClickedImage(target.src)
+    }
+
     useEffect(() => {
         firebase.initializeApp(firebaseConfig)
         const storageRef = firebase.storage().ref()
@@ -73,7 +78,7 @@ export default function Realizations({}: Prop) {
     }, [])
 
     useEffect(() => {
-        if (loadId < data.length && images.length <= 40) {
+        if (loadId < data.length) {
             setImages((prevImages) => {
                 const combinedImages = [...prevImages, ...data[loadId]]
                 const uniqueImages = removeDuplicates(combinedImages)
@@ -142,15 +147,16 @@ export default function Realizations({}: Prop) {
                 <div className="h-2/6 w-full  lg:px-40">
                     <div className="flex flex-col items-center justify-center gap-7  lg:flex-row lg:px-40 ">
                         <div
-                            className="onClick={() => { setClicked((prev) => !prev) }} flex h-11  w-52 cursor-pointer items-center
+                            className="flex h-11  w-52 cursor-pointer items-center
                                     justify-center rounded-lg  bg-csk-400
                                 font-nunito text-csk-50 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-csk-700"
                             onClick={() => {
                                 setClicked((prev) => !prev)
+                                console.log(images.length, loadId)
                             }}
                         >
                             <p>
-                                {images.length === 42
+                                {images.length === 38
                                     ? 'Brak więcej zdjęć'
                                     : 'Pokaż więcej zdjęć'}
                             </p>
@@ -158,7 +164,18 @@ export default function Realizations({}: Prop) {
                     </div>
                 </div>
             </div>
-            {clickedImage && <FullScreenGallery mainImg={clickedImage} />}
+            {clickedImage && (
+                <FullScreenGallery
+                    fetchImages={fetchMoreImages}
+                    clickImage={changeImg}
+                    mainImg={clickedImage}
+                    thumbnailImages={images}
+                    loadId={loadId}
+                    closeFullScreen={() => {
+                        setClickedImage('')
+                    }}
+                />
+            )}
         </>
     )
 }
