@@ -17,9 +17,6 @@ export default function Realizations({}: Prop) {
     const { ref: ref, inView: showMasonry } = useInView()
     const [data, setData] = useState<string[][]>([])
     const [images, setImages] = useState<string[]>([])
-    const [imagesWithoutDuplicates, setImagesWithoutDuplicates] = useState<
-        string[]
-    >([])
     const [clickedImage, setClickedImage] = useState<string>()
     const [loadId, setLoadId] = useState(0)
     const [clicked, setClicked] = useState(false)
