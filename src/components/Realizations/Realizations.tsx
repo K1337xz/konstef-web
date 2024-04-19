@@ -110,7 +110,7 @@ export default function Realizations({}: Prop) {
                                         dataLength={images.length}
                                         next={fetchMoreImages}
                                         hasMore={loadId < data.length - 1}
-                                        loader={<h4>xd</h4>}
+                                        loader={<h4></h4>}
                                         endMessage={<p></p>}
                                         style={{ width: '100%' }}
                                     >

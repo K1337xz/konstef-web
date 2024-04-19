@@ -1,4 +1,4 @@
-import { MouseEvent } from 'react'
+import { MouseEvent, useRef } from 'react'
 import { IoMdClose } from 'react-icons/io'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
@@ -21,6 +21,8 @@ export default function FullScreenGallery({
     loadId,
     clickImage,
 }: Props) {
+    const thumbnailRef = useRef<HTMLDivElement>(null)
+
     return (
         <div className="fixed top-0 h-full w-full bg-csk-900/95">
             <div className="relative flex w-full flex-col items-center justify-center gap-4 lg:px-40 lg:py-1">
@@ -28,17 +30,19 @@ export default function FullScreenGallery({
                     className="absolute right-40 top-10 cursor-pointer text-3xl text-csk-100"
                     onClick={closeFullScreen}
                 />
-                <div className="flex h-1/2 w-full items-center justify-center">
+                <div className="flex h-1/2 w-full items-center justify-center ">
                     <img src={mainImg} className="w-4/12" />
                 </div>
-                <div className="no-scrollbar relative w-1/2 overflow-scroll">
+                <div className="no-scrollbar overflow relative w-1/2">
                     <div
                         id="scrollableDiv"
                         style={{
                             height: 'auto',
-                            width: '200vh',
+                            width: '100%',
                             display: 'flex',
+                            overflow: 'scroll',
                         }}
+                        className="no-scrollbar"
                     >
                         <InfiniteScroll
                             dataLength={thumbnailImages.length}
@@ -50,15 +54,15 @@ export default function FullScreenGallery({
                                 width: '100%',
                                 display: 'flex',
                                 gap: '20px',
-                                overflow: 'hidden',
+                                overflow: 'scroll',
                             }}
+                            className="no-scrollbar"
                             scrollableTarget="scrollableDiv"
                         >
                             {thumbnailImages.map((itm, i) => (
                                 <LazyLoadImage
                                     src={itm}
                                     key={i}
-                                    effect="blur"
                                     style={
                                         mainImg === itm
                                             ? {
