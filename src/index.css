@@ -36,4 +36,38 @@ body,
     .lazyImg {
         width: 100px;
     }
+    .labels {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 30%;
+        height: 82px;
+        font-size: 20px;
+    }
+    .labelTextArea {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 30%;
+    }
+    .labels input {
+        width: 100%;
+        height: 53px;
+        padding-left: 27px;
+        border: 1px solid #080b11;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: #dce3ef;
+    }
+    .labels input:focus {
+        border: 2px solid #738ebf;
+        outline: none;
+    }
+    .labelTextArea textarea {
+        width: 100%;
+        border: 1px solid #080b11;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: #dce3ef;
+    }
 }

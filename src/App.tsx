@@ -4,6 +4,7 @@ import HeroSection from './components/HeroSection/HeroSection'
 import About from '@/components/About/About'
 import Cards from '@/components/Cards/Cards'
 import Realizations from './components/Realizations/Realizations'
+import Contact from './components/Contact/Contact'
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                 <About />
                 <Cards />
                 <Realizations />
+                <Contact />
             </div>
         </>
     )
