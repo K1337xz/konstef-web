@@ -18,10 +18,9 @@ export default function FullScreenGallery({
     closeFullScreen,
     thumbnailImages,
     fetchImages,
-    loadId,
     clickImage,
 }: Props) {
-    const thumbnailRef = useRef<HTMLDivElement>(null)
+    
 
     return (
         <div className="fixed top-0 h-full w-full bg-csk-900/95">
