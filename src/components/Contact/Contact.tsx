@@ -1,4 +1,5 @@
 import ContactForm from '../ContactForm/ContactForm'
+import LocationMap from '../Map/LocationMap'
 
 type Props = {}
 
@@ -19,8 +20,13 @@ export default function Contact({}: Props) {
                     </p>
                     <p>Jeśli masz więcej pytań, zachęcamy do kontaktu!</p>
                 </div>
-                <div className="w-full lg:px-40 lg:pt-12 ">
-                    <ContactForm />
+                <div className="flex w-full lg:px-40 lg:pt-12">
+                    <div className="flex w-1/2 items-center">
+                        <ContactForm />
+                    </div>
+                    <div className="w-1/2 ">
+                        <LocationMap />
+                    </div>
                 </div>
             </div>
         </div>
