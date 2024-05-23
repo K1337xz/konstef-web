@@ -7,17 +7,27 @@ export default function ContactForm() {
             <form className="flex flex-col gap-5">
                 <label htmlFor="firstName" className="labels">
                     Imię i Nazwisko
-                    <input type="text" required id="firstName" />
+                    <input
+                        type="text"
+                        required
+                        id="firstName"
+                        placeholder="Jan Kowalski"
+                    />
                 </label>
                 <label htmlFor="email" className="labels">
                     Email
-                    <input type="email" required id="email" />
+                    <input
+                        type="email"
+                        required
+                        id="email"
+                        placeholder="example@email.com"
+                    />
                 </label>
                 <label htmlFor="email" className="labelTextArea">
                     Wiadomość
-                    <textarea />
+                    <textarea placeholder="Napisz swoją wiadomość" />
                 </label>
-                <button className=" h-11 w-60 rounded-xl bg-csk-700 text-csk-50">
+                <button className="h-11 w-60 rounded-xl bg-csk-700 text-csk-50">
                     Wyślij wiadomość
                 </button>
             </form>
