@@ -3,8 +3,8 @@
 export default function ContactForm() {
     /*     const { register, handleSubmit, reset } = useForm() */
     return (
-        <div className=" w-full">
-            <form className="flex flex-col gap-5">
+        <div className="w-full pt-5 ">
+            <form className="flex flex-col items-center gap-5 lg:items-start">
                 <label htmlFor="firstName" className="labels">
                     Imię i Nazwisko
                     <input
