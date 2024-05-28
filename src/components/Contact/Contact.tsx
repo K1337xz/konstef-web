@@ -10,12 +10,12 @@ export default function Contact({}: Props) {
                 <h1 className="w-full text-center font-bebasNeue text-4xl  text-csk-600 md:text-center lg:px-40 lg:text-left lg:text-3xl">
                     Kontakt
                 </h1>
-                <div className="flex w-full flex-col items-center gap-3 text-center font-nunito text-4xl md:text-center lg:w-7/12 lg:items-start  lg:px-40 lg:pt-7 lg:text-left lg:text-xl">
-                    <h2 className="w-4/5 text-center font-bebasNeue text-3xl  tracking-wider lg:text-left lg:text-4xl">
+                <div className="flex w-full flex-col items-center gap-3 text-center font-nunito text-4xl md:text-center lg:w-11/12 lg:items-start  lg:px-40 lg:pt-7 lg:text-left lg:text-xl">
+                    <h2 className="w-full text-center font-bebasNeue text-3xl  tracking-wider lg:text-left lg:text-4xl">
                         Kontakt telefoniczny i wizyta przed podpisaniem umowy to
                         dla nas chleb powszedni.
                     </h2>
-                    <p className="w-1/2 text-center font-nunito text-xl lg:w-4/5 lg:text-left">
+                    <p className="w-full text-center font-nunito text-2xl lg:w-4/5 lg:text-left">
                         <br /> Po wstępnych rozmowach i wycenie podpisujemy
                         umowę, wchodzimy na miejsce <br />
                         prac , niezwłocznie zabierając się do pracy.
