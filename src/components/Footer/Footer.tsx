@@ -31,14 +31,14 @@ export default function Footer() {
                         <div>
                             <Link
                                 to="tel:516910480"
-                                className="flex items-center gap-3 text-lg text-csk-50"
+                                className="flex items-center gap-3 text-sm text-csk-50 lg:text-lg"
                             >
                                 <FiPhone />
                                 +48 516 910 480
                             </Link>
                             <Link
                                 to="mailto:konstef@gmail.com"
-                                className="flex items-center gap-3 text-lg text-csk-50"
+                                className="flex items-center gap-3 text-sm text-csk-50 lg:text-lg"
                             >
                                 <FaRegEnvelope />
                                 konstef@gmail.com
