@@ -21,6 +21,9 @@ export default {
                 bebasNeue: ['Bebas Neue', 'sans-serif'],
                 nunito: ['Nunito', 'sans-serif'],
             },
+            height: {
+                '60vh': '60vh',
+            },
         },
         gridTemplateColumns: {
             'auto-fill-100': 'repeat(auto-fill, minmax(350px, 1fr))',

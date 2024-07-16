@@ -10,7 +10,6 @@ type Props = {
     clickImage: (e: MouseEvent<HTMLImageElement>) => void
     fetchImages: () => void
     thumbnailImages: string[]
-    loadId: number
 }
 
 export default function FullScreenGallery({
@@ -20,8 +19,6 @@ export default function FullScreenGallery({
     fetchImages,
     clickImage,
 }: Props) {
-    
-
     return (
         <div className="fixed top-0 h-full w-full bg-csk-900/95">
             <div className="relative flex w-full flex-col items-center justify-center gap-4 lg:px-40 lg:py-1">
