@@ -10,7 +10,7 @@ export default function Cards({}: Props) {
                 <div className="card px-8  py-10">
                     <div className="flex h-full w-full flex-col items-center gap-10 lg:items-start">
                         <LuPenSquare className="text-5xl" />
-                        <p className="font-bebasNeue text-3xl">
+                        <p className="text-center font-bebasNeue text-3xl">
                             REMONTUJEMY PRYWATNE MIESZKANIA
                         </p>
                         <p className="w-80 text-center font-nunito text-xl lg:text-left">
@@ -23,7 +23,7 @@ export default function Cards({}: Props) {
                 <div className="card px-8  py-10">
                     <div className="flex h-full w-full flex-col items-center gap-10 lg:items-start">
                         <LuKeyRound className="text-5xl" />
-                        <p className="font-bebasNeue text-3xl">
+                        <p className="text-center font-bebasNeue text-3xl">
                             OD ZERA POD KLUCZ
                         </p>
                         <p className="w-80 text-center font-nunito text-xl lg:text-left">
@@ -36,7 +36,7 @@ export default function Cards({}: Props) {
                 <div className="card px-8  py-10">
                     <div className="flex h-full w-full flex-col items-center gap-10 lg:items-start">
                         <GoPeople className="text-5xl" />
-                        <p className="font-bebasNeue text-3xl">
+                        <p className="text-center font-bebasNeue text-3xl">
                             PRACUJEMY W MAŁYCH DRUŻYNACH
                         </p>
                         <p className="w-80 text-center  font-nunito text-xl lg:text-left">

@@ -14,7 +14,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css'
 type Prop = {}
 
 export default function Realizations({}: Prop) {
-    const { ref: ref /* , inView: showMasonry */ } = useInView()
+    const { ref: ref } = useInView()
     const [data, setData] = useState<string[]>([])
     const [visibleImages, setVisibleImages] = useState(6)
     const [clickedImage, setClickedImage] = useState<string>()
