@@ -70,47 +70,40 @@ export default function Realizations({}: Prop) {
                     </div>
                     <div className="w-full">
                         <div className="relative flex flex-col items-center justify-center  gap-7 lg:flex-row lg:px-40 lg:pt-32">
-                            {showMasonry && (
-                                <div className="w-full">
-                                    <InfiniteScroll
-                                        dataLength={data.length}
-                                        next={() => {}}
-                                        hasMore={visibleImages >= data.length}
-                                        loader={<h4></h4>}
-                                        endMessage={<p></p>}
-                                        style={{ width: '100%' }}
+                            <div className="w-full">
+                                <InfiniteScroll
+                                    dataLength={data.length}
+                                    next={() => {}}
+                                    hasMore={visibleImages >= data.length}
+                                    loader={<h4></h4>}
+                                    endMessage={<p></p>}
+                                    style={{ width: '100%' }}
+                                >
+                                    <ResponsiveMasonry
+                                        columnsCountBreakPoints={{
+                                            350: 1,
+                                            768: 2,
+                                            900: 3,
+                                        }}
+                                        className="w-full"
                                     >
-                                        <ResponsiveMasonry
-                                            columnsCountBreakPoints={{
-                                                350: 1,
-                                                768: 2,
-                                                900: 3,
-                                            }}
-                                            className="w-full"
-                                        >
-                                            <Masonry
-                                                columnsCount={3}
-                                                gutter="10px"
-                                            >
-                                                {data
-                                                    ?.slice(0, visibleImages)
-                                                    .map((itm, i) => (
-                                                        <LazyLoadImage
-                                                            src={itm}
-                                                            key={i}
-                                                            onClick={() => {
-                                                                setClickedImage(
-                                                                    itm
-                                                                )
-                                                            }}
-                                                            effect="blur"
-                                                        />
-                                                    ))}
-                                            </Masonry>
-                                        </ResponsiveMasonry>
-                                    </InfiniteScroll>
-                                </div>
-                            )}
+                                        <Masonry columnsCount={3} gutter="10px">
+                                            {data
+                                                ?.slice(0, visibleImages)
+                                                .map((itm, i) => (
+                                                    <LazyLoadImage
+                                                        src={itm}
+                                                        key={i}
+                                                        onClick={() => {
+                                                            setClickedImage(itm)
+                                                        }}
+                                                        effect="blur"
+                                                    />
+                                                ))}
+                                        </Masonry>
+                                    </ResponsiveMasonry>
+                                </InfiniteScroll>
+                            </div>
                         </div>
                     </div>
                 </FramerDiv>
