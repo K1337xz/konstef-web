@@ -69,7 +69,7 @@ export default function Realizations({}: Prop) {
                         </h1>
                     </div>
                     <div className="w-full">
-                        <div className="relative flex flex-col items-center justify-center  gap-7 lg:flex-row lg:px-40 lg:pt-32">
+                        <div className="relative flex flex-col items-center justify-center  gap-5 lg:flex-row lg:px-40 lg:pt-32">
                             <div className="w-full">
                                 <InfiniteScroll
                                     dataLength={data.length}

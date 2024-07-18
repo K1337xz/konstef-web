@@ -1,4 +1,4 @@
-import { MouseEvent } from 'react'
+import { MouseEvent, useRef, useEffect } from 'react'
 import { IoMdClose } from 'react-icons/io'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
@@ -19,8 +19,22 @@ export default function FullScreenGallery({
     fetchImages,
     clickImage,
 }: Props) {
+    const imageRefs = useRef<(HTMLDivElement | null)[]>([])
+
+    useEffect(() => {
+        // Scroll the thumbnail into view if it matches the mainImg
+        const index = thumbnailImages.findIndex((img) => img === mainImg)
+        if (index !== -1 && imageRefs.current[index]) {
+            imageRefs.current[index]!.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'center',
+            })
+        }
+    }, [mainImg, thumbnailImages])
+
     return (
-        <div className="fixed top-0 h-full w-full bg-csk-900/95">
+        <div className="fixed top-0 flex h-full w-full items-center bg-csk-900/95">
             <div className="relative flex w-full flex-col items-center justify-center gap-4 lg:px-40 lg:py-1">
                 <IoMdClose
                     className="absolute right-40 top-10 cursor-pointer text-3xl text-csk-100"
@@ -56,19 +70,33 @@ export default function FullScreenGallery({
                             scrollableTarget="scrollableDiv"
                         >
                             {thumbnailImages.map((itm, i) => (
-                                <LazyLoadImage
-                                    src={itm}
+                                <div
                                     key={i}
-                                    style={
-                                        mainImg === itm
-                                            ? {
-                                                  border: '1px solid red',
-                                              }
-                                            : { border: 'none' }
-                                    }
-                                    className="lazyImg"
-                                    onClick={clickImage}
-                                />
+                                    ref={(el) => (imageRefs.current[i] = el)}
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        width: '100px',
+                                        height: '100px',
+                                        flexShrink: 0,
+                                    }}
+                                >
+                                    <LazyLoadImage
+                                        src={itm}
+                                        style={{
+                                            border:
+                                                mainImg === itm
+                                                    ? '1px solid red'
+                                                    : 'none',
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'cover',
+                                        }}
+                                        className="lazyImg"
+                                        onClick={clickImage}
+                                    />
+                                </div>
                             ))}
                         </InfiniteScroll>
                     </div>
