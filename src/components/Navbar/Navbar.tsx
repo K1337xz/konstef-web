@@ -28,19 +28,19 @@ export default function Navbar({}: Props) {
                     <div className="font-Nunito  hidden w-2/3 items-center justify-end gap-8 text-base font-normal text-csk-950 lg:flex">
                         <ul className="flex items-center justify-center gap-8">
                             <li>
-                                <Link to="4">O Firmie</Link>
+                                <Link to="#4">O Firmie</Link>
                             </li>
                             <li>
-                                <Link to="3">O Nas</Link>
+                                <Link to="#3">O Nas</Link>
                             </li>
                             <li>
-                                <Link to="2">Realizacje</Link>
+                                <Link to="#2">Realizacje</Link>
                             </li>
                             <li>
-                                <Link to="1">Opinie</Link>
+                                <Link to="#1">Opinie</Link>
                             </li>
                             <li>
-                                <Link to="5">Kontakt</Link>
+                                <Link to="#5">Kontakt</Link>
                             </li>
                         </ul>
                     </div>
