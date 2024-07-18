@@ -22,7 +22,6 @@ export default function FullScreenGallery({
     const imageRefs = useRef<(HTMLDivElement | null)[]>([])
 
     useEffect(() => {
-        // Scroll the thumbnail into view if it matches the mainImg
         const index = thumbnailImages.findIndex((img) => img === mainImg)
         if (index !== -1 && imageRefs.current[index]) {
             imageRefs.current[index]!.scrollIntoView({
@@ -35,15 +34,15 @@ export default function FullScreenGallery({
 
     return (
         <div className="fixed top-0 flex h-full w-full items-center bg-csk-900/95">
-            <div className="relative flex w-full flex-col items-center justify-center gap-4 lg:px-40 lg:py-1">
+            <div className="relative flex  w-full flex-col items-center justify-center gap-4 pt-3 lg:px-40 lg:py-1">
                 <IoMdClose
-                    className="absolute right-40 top-10 cursor-pointer text-3xl text-csk-100"
+                    className="absolute -top-10 right-7 cursor-pointer text-3xl text-csk-100 lg:right-40 lg:top-10"
                     onClick={closeFullScreen}
                 />
-                <div className="flex h-1/2 w-full items-center justify-center ">
-                    <img src={mainImg} className="w-4/12" />
+                <div className="flex h-full w-full items-center justify-center lg:h-1/2 ">
+                    <img src={mainImg} className="w-4/5 lg:w-4/12" />
                 </div>
-                <div className="no-scrollbar overflow relative w-1/2">
+                <div className="no-scrollbar overflow relative flex w-11/12 items-center lg:w-1/2">
                     <div
                         id="scrollableDiv"
                         style={{
