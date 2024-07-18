@@ -20,7 +20,7 @@ export const slider: TSlider[] = [
     {
         backgroundImage: sec,
         backgroundID: 1,
-        header: `REMONTUJEMY \n PRYWATNE MIESZKANIA`,
+        header: `WYKAŃCZAMY I REMONTUJEMY`,
         paragraph:
             'Swoje usługi kierujemy do Klientów prywatnych, \n którzy szukają ekipy do remontu lub wykończenia swojego „M”.',
     },
