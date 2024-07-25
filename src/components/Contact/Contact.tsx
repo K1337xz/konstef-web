@@ -5,7 +5,10 @@ type Props = {}
 
 export default function Contact({}: Props) {
     return (
-        <div className="flex w-full flex-col items-start gap-10 p-6 text-center md:text-left lg:py-32 lg:text-left">
+        <div
+            id="#5"
+            className="flex w-full flex-col items-start gap-10 p-6 text-center md:text-left lg:py-32 lg:text-left"
+        >
             <div className="w-full">
                 <h1 className="w-full text-center font-bebasNeue text-4xl  text-csk-600 md:text-center lg:px-40 lg:text-left lg:text-3xl">
                     Kontakt

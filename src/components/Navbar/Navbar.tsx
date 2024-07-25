@@ -1,5 +1,5 @@
 import Logo from '@/assets/Konst-stef.png'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-scroll'
 import { FaBars } from 'react-icons/fa'
 import { IoCloseSharp } from 'react-icons/io5'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -26,21 +26,56 @@ export default function Navbar({}: Props) {
                     <img src={Logo} className="w-32" />
                     {/* DESKTOP NAV */}
                     <div className="font-Nunito  hidden w-2/3 items-center justify-end gap-8 text-base font-normal text-csk-950 lg:flex">
-                        <ul className="flex items-center justify-center gap-8">
+                        <ul className="flex cursor-pointer items-center justify-center gap-8">
                             <li>
-                                <Link to="#4">O Firmie</Link>
+                                <Link
+                                    to="#4"
+                                    spy={true}
+                                    smooth={true}
+                                    offset={50}
+                                    duration={500}
+                                >
+                                    O Firmie
+                                </Link>
                             </li>
                             <li>
-                                <Link to="#3">O Nas</Link>
+                                <Link
+                                    to="#3"
+                                    spy={true}
+                                    smooth={true}
+                                    offset={50}
+                                    duration={500}
+                                >
+                                    O Nas
+                                </Link>
                             </li>
                             <li>
-                                <Link to="#2">Realizacje</Link>
+                                <Link
+                                    to="#2"
+                                    spy={true}
+                                    smooth={true}
+                                    offset={50}
+                                    duration={500}
+                                >
+                                    Realizacje
+                                </Link>
                             </li>
                             <li>
                                 <Link to="#1">Opinie</Link>
                             </li>
                             <li>
-                                <Link to="#5">Kontakt</Link>
+                                <Link
+                                    to="#5"
+                                    spy={true}
+                                    smooth={true}
+                                    offset={50}
+                                    duration={500}
+                                    onClick={() => {
+                                        setOpen(false)
+                                    }}
+                                >
+                                    Kontakt
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -61,19 +96,90 @@ export default function Navbar({}: Props) {
 
                             <ul className="flex flex-col items-center justify-center gap-8 font-medium text-csk-50	">
                                 <li>
-                                    <Link to="4">O Firmie</Link>
+                                    <Link
+                                        to="#4"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={50}
+                                        duration={500}
+                                        onClick={() => {
+                                            setOpen(
+                                                (prevValue) =>
+                                                    (prevValue = !prevValue)
+                                            )
+                                        }}
+                                    >
+                                        O Firmie
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link to="3">O Nas</Link>
+                                    <Link
+                                        to="#3"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={50}
+                                        duration={500}
+                                        onClick={() => {
+                                            setOpen(
+                                                (prevValue) =>
+                                                    (prevValue = !prevValue)
+                                            )
+                                        }}
+                                    >
+                                        O Nas
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link to="2">Realizacje</Link>
+                                    <Link
+                                        to="#2"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={50}
+                                        duration={500}
+                                        onClick={() => {
+                                            setOpen(
+                                                (prevValue) =>
+                                                    (prevValue = !prevValue)
+                                            )
+                                        }}
+                                    >
+                                        Realizacje
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link to="1">Opinie</Link>
+                                    <Link
+                                        to="#1"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={50}
+                                        duration={500}
+                                        onClick={() => {
+                                            setOpen(
+                                                (prevValue) =>
+                                                    (prevValue = !prevValue)
+                                            )
+                                        }}
+                                    >
+                                        Opinie
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link to="5">Kontakt</Link>
+                                    <Link
+                                        to="#5"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={50}
+                                        duration={500}
+                                        onClick={() => {
+                                            setOpen(
+                                                (prevValue) =>
+                                                    (prevValue = !prevValue)
+                                            )
+                                            console.log('????')
+                                        }}
+                                    >
+                                        Kontakt
+                                    </Link>
                                 </li>
                             </ul>
                         </motion.div>

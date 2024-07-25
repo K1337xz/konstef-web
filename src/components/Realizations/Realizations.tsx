@@ -58,6 +58,7 @@ export default function Realizations({}: Prop) {
             <div
                 className="relative flex w-full flex-col items-start gap-10 p-10 text-center md:text-left lg:py-32 lg:text-left"
                 ref={ref}
+                id="#2"
             >
                 <FramerDiv
                     variantHidden={{ opacity: 0, y: 75 }}
