@@ -1,4 +1,4 @@
-import leftImg from '@/assets/42.jpg'
+import leftImg from '@/assets/10.jpg'
 type Props = {}
 
 export default function About({}: Props) {
@@ -30,7 +30,7 @@ export default function About({}: Props) {
                             kwestia do uzgodnienia.
                         </p>
                     </div>
-                    <div className="w-7/12 md:w-8/12 lg:w-1/2 ">
+                    <div className="w-7/12 md:w-8/12 lg:w-1/3">
                         <img
                             src={leftImg}
                             className="rounded-bl-3xl rounded-tr-3xl"

@@ -49,6 +49,9 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
+                <div className="flex w-full items-center justify-center text-csk-300">
+                    <Link to="/polityka-prywatności">Polityka Prywatności</Link>
+                </div>
             </div>
         </footer>
     )

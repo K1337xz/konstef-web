@@ -4,10 +4,11 @@ import { FaBars } from 'react-icons/fa'
 import { IoCloseSharp } from 'react-icons/io5'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-
+import { useNavigate } from 'react-router-dom'
 type Props = {}
 
 export default function Navbar({}: Props) {
+    const navigate = useNavigate()
     const [open, setOpen] = useState(false)
 
     const toggleMobile = () => {
@@ -23,7 +24,11 @@ export default function Navbar({}: Props) {
         <nav>
             <div className="z-10  flex w-full items-center justify-between bg-white p-6">
                 <div className="mx-auto flex  h-14 w-5/6 items-center justify-between">
-                    <img src={Logo} className="w-32" />
+                    <img
+                        src={Logo}
+                        className="w-32"
+                        onClick={() => navigate('/')}
+                    />
                     {/* DESKTOP NAV */}
                     <div className="font-Nunito  hidden w-2/3 items-center justify-end gap-8 text-base font-normal text-csk-950 lg:flex">
                         <ul className="flex cursor-pointer items-center justify-center gap-8">
