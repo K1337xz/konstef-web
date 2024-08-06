@@ -2,7 +2,7 @@ import { MouseEvent, useRef, useEffect } from 'react'
 import { IoMdClose } from 'react-icons/io'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import { FaChevronRight } from 'react-icons/fa6'
+import { FaChevronRight, FaChevronLeft } from 'react-icons/fa6'
 
 type Props = {
     mainImg?: string
@@ -10,6 +10,7 @@ type Props = {
     clickImage: (e: MouseEvent<HTMLImageElement>) => void
     fetchImages: () => void
     thumbnailImages: string[]
+    setMainImg: (img: string) => void // Add this prop to set the main image
 }
 
 export default function FullScreenGallery({
@@ -18,6 +19,7 @@ export default function FullScreenGallery({
     thumbnailImages,
     fetchImages,
     clickImage,
+    setMainImg,
 }: Props) {
     const imageRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -32,6 +34,20 @@ export default function FullScreenGallery({
         }
     }, [mainImg, thumbnailImages])
 
+    const handleNextImage = () => {
+        const currentIndex = thumbnailImages.findIndex((img) => img === mainImg)
+        if (currentIndex !== -1 && currentIndex < thumbnailImages.length - 1) {
+            setMainImg(thumbnailImages[currentIndex + 1])
+        }
+    }
+
+    const handlePreviousImage = () => {
+        const currentIndex = thumbnailImages.findIndex((img) => img === mainImg)
+        if (currentIndex > 0) {
+            setMainImg(thumbnailImages[currentIndex - 1])
+        }
+    }
+
     return (
         <div className="fixed top-0 flex h-full w-full items-center bg-csk-900/95">
             <div className="relative flex  w-full flex-col items-center justify-center gap-4 pt-3 lg:px-40 lg:py-1">
@@ -40,7 +56,19 @@ export default function FullScreenGallery({
                     onClick={closeFullScreen}
                 />
                 <div className="flex h-full w-full items-center justify-center lg:h-1/2 ">
+                    <div className="flex w-24 items-center justify-center">
+                        <FaChevronLeft
+                            className="cursor-pointer text-3xl text-csk-50 "
+                            onClick={handlePreviousImage}
+                        />
+                    </div>
                     <img src={mainImg} className="w-4/5 lg:w-4/12" />
+                    <div className="flex w-24 items-center justify-center">
+                        <FaChevronRight
+                            className="cursor-pointer text-3xl text-csk-50 "
+                            onClick={handleNextImage}
+                        />
+                    </div>
                 </div>
                 <div className="no-scrollbar overflow relative flex w-11/12 items-center lg:w-1/2">
                     <div
@@ -84,9 +112,10 @@ export default function FullScreenGallery({
                                     <LazyLoadImage
                                         src={itm}
                                         style={{
+                                            borderRadius: '5px',
                                             border:
                                                 mainImg === itm
-                                                    ? '1px solid red'
+                                                    ? '3px solid #96AACF'
                                                     : 'none',
                                             width: '100%',
                                             height: '100%',
@@ -99,7 +128,6 @@ export default function FullScreenGallery({
                             ))}
                         </InfiniteScroll>
                     </div>
-                    <FaChevronRight />
                 </div>
             </div>
         </div>

@@ -91,7 +91,10 @@ export default function ContactForm() {
                         {errors.message.message}
                     </span>
                 )}
-                <label htmlFor="checkBx" className="flex items-center">
+                <label
+                    htmlFor="checkBx"
+                    className="flex flex-col items-center lg:flex-row"
+                >
                     <input
                         type="checkbox"
                         id="checkBx"

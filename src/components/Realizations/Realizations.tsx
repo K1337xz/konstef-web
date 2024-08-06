@@ -20,7 +20,9 @@ export default function Realizations({}: Prop) {
     const [clickedImage, setClickedImage] = useState<string>()
 
     useEffect(() => {
-        firebase.initializeApp(firebaseConfig)
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig)
+        }
         const storageRef = firebase.storage().ref()
         const imagesRef = storageRef.child('images')
         const fetchImages = async () => {
@@ -134,6 +136,7 @@ export default function Realizations({}: Prop) {
                     closeFullScreen={() => {
                         setClickedImage('')
                     }}
+                    setMainImg={setClickedImage}
                 />
             )}
         </>

@@ -21,7 +21,7 @@ export default function Navbar({}: Props) {
     }
 
     return (
-        <nav>
+        <nav id="#1">
             <div className="z-10  flex w-full items-center justify-between bg-white p-6">
                 <div className="mx-auto flex  h-14 w-5/6 items-center justify-between">
                     <img
@@ -64,9 +64,6 @@ export default function Navbar({}: Props) {
                                 >
                                     Realizacje
                                 </Link>
-                            </li>
-                            <li>
-                                <Link to="#1">Opinie</Link>
                             </li>
                             <li>
                                 <Link
