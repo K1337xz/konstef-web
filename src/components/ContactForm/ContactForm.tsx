@@ -39,7 +39,7 @@ export default function ContactForm() {
     } = useForm<FormData>({
         resolver: yupResolver(schema),
     })
-    const [isSuccess, setIsSuccess] = useState<boolean>(true)
+    const [isSuccess, setIsSuccess] = useState<boolean>(false)
 
     const sendMessage: SubmitHandler<FormData> = async (data) => {
         try {
