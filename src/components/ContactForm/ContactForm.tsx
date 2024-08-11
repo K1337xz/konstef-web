@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -38,10 +39,17 @@ export default function ContactForm() {
     } = useForm<FormData>({
         resolver: yupResolver(schema),
     })
+    const [isSuccess, setIsSuccess] = useState<boolean>(true)
 
-    const sendMessage: SubmitHandler<FormData> = (data) => {
-        axios.post(import.meta.env.VITE_MAILAPI, { ...data })
-        reset()
+    const sendMessage: SubmitHandler<FormData> = async (data) => {
+        try {
+            axios.post(import.meta.env.VITE_MAILAPI, { ...data })
+            setIsSuccess(true)
+            reset()
+        } catch (error) {
+            console.error('Error sending message:', error)
+            setIsSuccess(false)
+        }
     }
 
     return (
@@ -115,6 +123,11 @@ export default function ContactForm() {
                     Wyślij wiadomość
                 </button>
             </form>
+            {isSuccess && (
+                <div className="mt-5 text-green-700">
+                    Wiadomość została wysłana pomyślnie.
+                </div>
+            )}
         </div>
     )
 }
